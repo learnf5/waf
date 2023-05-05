@@ -12564,30 +12564,6 @@ security datasync global-profile /Common/datasync-global/datasync-global-profile
     scramble-alg none
     table static-fpm
 }
-security datasync update-file /Common/datasync-global/update-file-clntcap_update_v17.1.0__19700101_000000__20230222_075957__65c6d2825b6ebba35f1935743e6170fe {
-    cache-path /config/filestore/files_d/Common_d/datasync_update_file_d/:Common:datasync-global:update-file-clntcap_update_v17.1.0__19700101_000000__20230222_075957__65c6d2825b6ebba35f1935743e6170fe_96608_1
-    original-create-comment "from disk"
-    original-create-device "bigip1.f5trn.com / bigip1.f5trn.com #0"
-    original-create-time 2023-05-05:08:13:44
-    revision 1
-    source-path /var/datasync/loaded_updates/clntcap_update_v17.1.0__19700101_000000__20230222_075957__65c6d2825b6ebba35f1935743e6170fe
-}
-security datasync update-file /Common/datasync-global/update-file-versafe_html_update_v17.1.0__19700101_000000__19700101_000000__999611ee4b7321a25530244439c17332 {
-    cache-path /config/filestore/files_d/Common_d/datasync_update_file_d/:Common:datasync-global:update-file-versafe_html_update_v17.1.0__19700101_000000__19700101_000000__999611ee4b7321a25530244439c17332_96611_1
-    original-create-comment "from disk"
-    original-create-device "bigip1.f5trn.com / bigip1.f5trn.com #0"
-    original-create-time 2023-05-05:08:13:44
-    revision 1
-    source-path /var/datasync/loaded_updates/versafe_html_update_v17.1.0__19700101_000000__19700101_000000__999611ee4b7321a25530244439c17332
-}
-security datasync update-file /Common/datasync-global/update-file-versafe_js_update_v17.1.0__19700101_000000__19700101_080000__a44cc318b08825c4840f8e1ec66bae3b {
-    cache-path /config/filestore/files_d/Common_d/datasync_update_file_d/:Common:datasync-global:update-file-versafe_js_update_v17.1.0__19700101_000000__19700101_080000__a44cc318b08825c4840f8e1ec66bae3b_96605_1
-    original-create-comment "from disk"
-    original-create-device "bigip1.f5trn.com / bigip1.f5trn.com #0"
-    original-create-time 2023-05-05:08:13:44
-    revision 1
-    source-path /var/datasync/loaded_updates/versafe_js_update_v17.1.0__19700101_000000__19700101_080000__a44cc318b08825c4840f8e1ec66bae3b
-}
 security device-id attribute /Common/att01 {
     id 1
 }
