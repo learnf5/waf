@@ -12,7 +12,7 @@ import requests
  # sys.exit()
 
 # url = 'https://' + sys.argv[1] + '/rest/user/login'
-url = 'https://juice.f5trn.com/rest/user/login'
+url = 'http://juice.f5trn.com/rest/user/login'
 cookies = dict(language='en', cookieconsent_status='dismiss', io='')
 pwdfile = 'juice_passwords.txt'
 
