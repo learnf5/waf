@@ -1,0 +1,10 @@
+{
+    "timesToSend": 10,
+    "url": "http://localhost:3000/api/Feedbacks/",
+    "payload": {
+        "comment": "repeating feeback 10 times",
+        "rating": 1,
+        "captcha": "5",
+        "captchaId": 0
+    }
+}
