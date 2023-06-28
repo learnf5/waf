@@ -4,7 +4,7 @@ from faker import faker
 
 config = json.loads(open('./config.json').read())
 
-faker = Faker()
+faker = faker()
 
 print('Starting...')
 
