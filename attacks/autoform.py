@@ -1,6 +1,6 @@
 import requests
 import json
-from faker import Faker
+from faker import faker
 
 config = json.loads(open('./config.json').read())
 
