@@ -1,10 +1,10 @@
 import requests
 import json
-from faker import faker
+from faker import Faker
 
 config = json.loads(open('./config.json').read())
 
-faker = faker()
+faker = Faker()
 
 print('Starting...')
 
