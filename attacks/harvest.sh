@@ -47,7 +47,8 @@ do
                                 for i in $(eval echo "{0..`date +%M`}")
                                         do
                                                 # curl -0 --interface $SRC_ADDR1 -s -o /dev/null -A "`shuf -n 1 clean_useragents.txt`" -w "status: %{http_code}\tbytes: %{size_download}\ttime: %{time_total}\n" https://$IP`shuf -n 1 urls.txt` && sleep 3   
-                                                curl -0 -s -o /dev/null -A "`shuf -n 1 clean_useragents.txt`" -w "status: %{http_code}\tbytes: %{size_download}\ttime: %{time_total}\n" https://$IP`shuf -n 1 urls.txt` && sleep 3   
+                                                # curl -0 -s -o /dev/null -A "`shuf -n 1 clean_useragents.txt`" -w "status: %{http_code}\tbytes: %{size_download}\ttime: %{time_total}\n" https://$IP`shuf -n 1 urls.txt` && sleep 3   
+                                                curl https://$IP
                                                 done
                             
                         done
