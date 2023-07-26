@@ -1,0 +1,25 @@
+when ASM_REQUEST_BLOCKING {
+    log local3. "violation=[lindex [ASM::violation_data] 0]"
+    log local3. "support_id=[lindex [ASM::violation_data] 1]"
+    log local3. "web_application=[lindex [ASM::violation_data] 2]"
+    log local3. "severity=[lindex [ASM::violation_data] 3]"
+    log local3. "source_ip=[lindex [ASM::violation_data] 4]"
+    log local3. "attack_type=[lindex [ASM::violation_data] 5]"
+    log local3. "request_status=[lindex [ASM::violation_data] 6]"
+    if { [lindex [ASM::violation_data] 0] contains "VIOLATION_ATTACK_SIGNATURE_DETECTED" } {
+        log local3. "VIOLATION_ATTACK_SIGNATURE_DETECTED"
+        set response "<html><head><title>Warning Page</title></head><body>Please contact IT at 800 555 5555</body></html>"
+        ASM::payload replace 0 [ASM::payload length] ""
+        ASM::payload replace 0 0 $response
+        set asm_payload_length [ASM::payload length]
+    }
+}
+when HTTP_RESPONSE_RELEASE {
+    if { [info exists asm_payload_length] }{
+        if {$asm_payload_length > 0} {
+            HTTP::header remove Content-Length
+            HTTP::header insert Content-Length $asm_payload_length
+        }
+    }
+}
+
