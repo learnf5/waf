@@ -1,5 +1,5 @@
 when ASM_REQUEST_DONE {
-if {[ASM::violation count] eq 1 and [ASM::severity] eq "Error"} {
-ASM::raise too_many_violations
-}
+    if {[ASM::violation count] eq 1 and [ASM::severity] eq "Error"} {
+        ASM::raise too_many_violations
+    }
 }
