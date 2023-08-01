@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Created on Jul 12, 2022 12:33:48 PM
-
-# #!/bin/bash
 # v1.0 by sVen Mueller
 # v4.0 by F5 Technical Training (August 1, 2023)
 ## This script creates Apache Benche traffic that looks like attack traffic. It is designed to work with the Juice Shop application. It should run at the same time as a
@@ -10,15 +8,6 @@
 #
 # If you want to debug, change the first line to #!/bin/bash -x
 # to get the student_id number from SSH_CLIENT env variable
-# if SSH_CLIENT is not set, the script will exit
-#
-#if [ -n "$SSH_CLIENT" ]; then
- #  student_id=$(echo $SSH_CLIENT | cut -f3 -d.)
-# else
-  # echo "SSH_CLIENT variable is not set, cannot continue, exiting"
-   # exit 1
-# fi
-# trap ctrl_c INT
 
 function ctrl_c() {
    echo "** Trapped CTRL-C"
@@ -32,23 +21,13 @@ echo
 # $1    IP address (BIG-IP VS address)
 IP=$1
 # VS_ADDR=${1:-10.10.${student_id}.101}
-# Platform Check
-platform=$(uname)
-if [[ $platform == 'Linux' ]]; then
-        echo "Your platform is Linux"
-        SRC_ADDR1=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
-        SRC_ADDR2=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
-        SRC_ADDR3=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
-        SRC_ADDR4=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
-elif [[ $platform == 'Darwin' ]]; then
-        echo "Your platform is Mac"
-        SRC_ADDR1=$(ifconfig en0 | grep inet | grep -v inet6 |awk '{print $2}')
-        echo $SRC_ADDR1
-fi
 
-# $2 Source Address 1 (Kali box interface)
-# $3 Source Address 2 (Kali box interface)
-# $4 Source Address 3 (Kali box interface)
+SRC_ADDR1=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 1p)
+SRC_ADDR2=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 2p)
+SRC_ADDR3=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 3p)
+SRC_ADDR4=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 4p)
+echo $SRC_ADDR1, $SRC_ADDR2, $SRC_ADDR3, $SRC_ADDR4
+
 SRC_ADDR1=10.10.1.30
 SRC_ADDR2=10.10.1.31
 SRC_ADDR3=10.10.1.32
