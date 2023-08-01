@@ -32,6 +32,19 @@ echo
 # $1    IP address (BIG-IP VS address)
 IP=$1
 # VS_ADDR=${1:-10.10.${student_id}.101}
+# Platform Check
+platform=$(uname)
+if [[ $platform == 'Linux' ]]; then
+        echo "Your platform is Linux"
+        SRC_ADDR1=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
+        SRC_ADDR2=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
+        SRC_ADDR3=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
+        SRC_ADDR4=$(ip a show dev ens160 | grep inet |grep -v inet6| awk -F'[/ ]+' '{print $3}')
+elif [[ $platform == 'Darwin' ]]; then
+        echo "Your platform is Mac"
+        SRC_ADDR1=$(ifconfig en0 | grep inet | grep -v inet6 |awk '{print $2}')
+        echo $SRC_ADDR1
+fi
 
 # $2 Source Address 1 (Kali box interface)
 # $3 Source Address 2 (Kali box interface)
