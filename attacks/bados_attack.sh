@@ -49,10 +49,10 @@ fi
 # $2 Source Address 1 (Kali box interface)
 # $3 Source Address 2 (Kali box interface)
 # $4 Source Address 3 (Kali box interface)
-SRC_ADDR1=10.10.112.111
-SRC_ADDR2=10.10.112.112
-SRC_ADDR3=10.10.112.113
-SRC_ADDR4=10.10.112.114
+SRC_ADDR1=10.10.1.30
+SRC_ADDR2=10.10.1.31
+SRC_ADDR3=10.10.1.32
+SRC_ADDR4=10.10.1.33
 #
 ###########################################
 
