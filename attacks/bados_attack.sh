@@ -3,11 +3,12 @@
 # Created on Jul 12, 2022 12:33:48 PM
 # v1.0 by sVen Mueller
 # v4.0 by F5 Technical Training (August 1, 2023)
+#
 ## This script creates Apache Benche traffic that looks like attack traffic. It is designed to work with the Juice Shop application. It should run at the same time as a
 ## baseline.sh.
-#
-# If you want to debug, change the first line to #!/bin/bash -x
-# to get the student_id number from SSH_CLIENT env variable
+##
+## If you want to debug, change the first line to #!/bin/bash -x
+## to get the student_id number from SSH_CLIENT env variable
 
 function ctrl_c() {
    echo "** Trapped CTRL-C"
@@ -18,15 +19,11 @@ clear
 echo "Attacking Juice Shop"
 echo
 ###########################################
-# $1    IP address (BIG-IP VS address)
-IP=$1
-# VS_ADDR=${1:-10.10.${student_id}.101}
 
 SRC_ADDR1=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 1p)
 SRC_ADDR2=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 2p)
 SRC_ADDR3=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 3p)
 SRC_ADDR4=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 4p)
-echo $SRC_ADDR1, $SRC_ADDR2, $SRC_ADDR3, $SRC_ADDR4
 
 stop_flag=0
 
