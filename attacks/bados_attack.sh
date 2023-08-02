@@ -28,13 +28,6 @@ SRC_ADDR3=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{p
 SRC_ADDR4=$(ip a show dev ens160 | grep inet | grep -v inet6 | awk -F'[/ ]+' '{print $3}' | sed -n 4p)
 echo $SRC_ADDR1, $SRC_ADDR2, $SRC_ADDR3, $SRC_ADDR4
 
-SRC_ADDR1=10.10.1.30
-SRC_ADDR2=10.10.1.31
-SRC_ADDR3=10.10.1.32
-SRC_ADDR4=10.10.1.33
-#
-###########################################
-
 stop_flag=0
 
 # trap ctrl-c and call ctrl_c()
